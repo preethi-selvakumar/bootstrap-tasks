@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2. Contact Us Form with Custom Validation + Mobile Styling</title>
+
+    <!--Bootstrap css-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+
+    <style>
+         /*  5th Point - Custom Media Query for mobile */
+        @media (max-width: 576px) {
+            .contact-form {
+                padding: 10px;
+                text-align: center;
+            }
+
+            .contact-form .form-label {
+                display: block;
+                text-align: center;
+            }
+
+            .contact-form button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 1st Point: Centered Layout using .container, .row, .col-md-6 offset-md-3 -->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <h2 class="text-center mb-4">Contact Us</h2>
+
+                <!-- 3rd Point: was-validated for Bootstrap Validation -->
+                <form class="was-validated contact-form">
+
+                    <!-- 2nd Point: Full Name Field -->
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Full Name</label>
+                        <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+                        <div class="invalid-feedback">Please enter your name.</div>
+                    </div>
+
+                    <!-- 2nd Point: Email Field -->
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                        <div class="invalid-feedback">Please enter a valid email address.</div>
+                    </div>
+
+                    <!-- 2nd Point:Message Field -->
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Your Message</label>
+                        <textarea class="form-control" id="message" rows="4" placeholder="Write your message here"
+                            required></textarea>
+                        <div class="invalid-feedback">Please enter your message.</div>
+                    </div>
+
+                     <!-- 4th Point: Submit Button +  7th Point (Modal trigger on submit) -->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#successModal">
+                        Submit
+                    </button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- 7th Point: Optional Modal on Successful Submit (Challenge Upgrade) -->
+    <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+            <div class="modal-header">
+                    <h5 class="modal-title" id="successModalLabel">Thank You!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body text-center">
+                    Your message has been successfully submitted. We'll get back to you soon!
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
